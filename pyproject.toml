@@ -1,0 +1,21 @@
+[project]
+name = "command-runner"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "absolutely-nothing>=1.0.0",
+]
+
+[project.scripts]
+command_runner = "command_runner.command_runner:main"
+
+[tool.uv]
+package = true
+
+[dependency-groups]
+dev = [
+    "black>=25.1.0",
+    "pylint>=3.3.7",
+]
