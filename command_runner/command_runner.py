@@ -11,6 +11,8 @@ import subprocess
 from dataclasses import dataclass, field, asdict, fields
 import tomllib
 
+from .version import __version__
+
 DEFAULT_CONFIG_LOCATION = "/etc/command_runner/command_runner.toml"
 DEFAULT_TASKS_LOCATION = "/etc/command_runner/tasks.csv"
 DATES = ["mo", "tu", "we", "th", "fr", "sa", "su"]
@@ -204,7 +206,7 @@ def run_tasks(tasks_file: str, config_file: str):
 
 def parse_args():
     main_parser = argparse.ArgumentParser(description="command_runner")
-    main_parser.add_argument("-V", "--version", action="version", version="0.0.0")
+    main_parser.add_argument("-V", "--version", action="version", version=__version__)
     main_parser.set_defaults(run=lambda: print("Use a subparser!"))
     modes = main_parser.add_subparsers(title="Mode", metavar="")
 
